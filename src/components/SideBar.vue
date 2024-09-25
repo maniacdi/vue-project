@@ -1,7 +1,8 @@
 <template>
   <div class="layout">
     <div class="sidebar">
-      <h2>SIDEBAR</h2>
+      <h2>WELCOME</h2>
+      <h3 class="user-name">User: {{ registerStore.name.split(' ')[0] }}</h3>
       <ul>
         <li class="item-list">
           <router-link to="/counter">Counter</router-link>
@@ -17,7 +18,10 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useRegisterStore } from '@/modules/form/stores/registerStore';
+const registerStore = useRegisterStore();
+</script>
 
 <style>
 html,
@@ -43,15 +47,23 @@ body {
   display: flex;
   flex-direction: column;
   color: white;
-  box-shadow: 2px 0px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease;
 }
 
 .sidebar h2 {
   margin-bottom: 20px;
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   text-align: center;
   color: #ecf0f1;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .sidebar ul {
@@ -67,15 +79,23 @@ body {
 .item-list a {
   text-decoration: none;
   color: #ecf0f1;
-  font-size: 1.2rem;
-  padding: 10px;
+  font-size: 1.1rem;
+  padding: 12px;
   display: block;
   border-radius: 8px;
-  transition: background-color 0.3s ease;
+  background-color: transparent;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .item-list a:hover {
   background-color: #34495e;
   color: white;
+  transform: translateY(-2px);
+}
+
+.item-list a:focus {
+  outline: none;
+  background-color: #34495e;
+  box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.5);
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <CustomHeader />
   <div class="container">
     <SideBar />
     <div class="content">
@@ -9,6 +10,7 @@
 
 <script setup>
 import SideBar from '../components/SideBar.vue';
+import CustomHeader from '@/components/CustomHeader.vue';
 </script>
 
 <style scoped>

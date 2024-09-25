@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@vee-validate/yup": "^4.13.2",
+    "axios": "^1.7.7",
     "core-js": "^3.8.3",
     "pinia": "^2.1.7",
     "vee-validate": "^4.13.2",
@@ -36,7 +37,9 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "vue/multi-word-component-names": "off"
+    }
   },
   "browserslist": [
     "> 1%",
